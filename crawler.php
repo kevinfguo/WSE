@@ -15,24 +15,26 @@ class Crawler{
 	}
 	function crawl($website){
 		if ($website == 'muckrack'){
-			$url = 'http://muckrack.com/search/results?q=';
-			$url = $url.$name_arr[0];
-			for ($i = 1; $i < count($name_arr); $i++){
-				$url = $url.'%20'.$name_arr[i];
-			}
 			$doc = new DOMDocument();
-			$doc->loadHTMLFile($url);
-			$finder = new DOMXPath($doc);
-			$elements = $finder->query("*/div[@class='search-results-header']");
-			if (!is_null($elements)){
-				foreach ($elements as $element){
-					printpre("[".$element->nodeName."]");
-					$nodes = $element->childNodes;
-					foreach ($nodes as $node){
-						printpre($node->nodeValue);
-					}
-				}
-			}
+			$doc -> loadHTMLFile("http://muckrack.com/search/results?q=gary%20levin");
+			// $url = 'http://muckrack.com/search/results?q=';
+			// $url = $url.$name_arr[0];
+			// for ($i = 1; $i < count($name_arr); $i++){
+			// 	$url = $url.'%20'.$name_arr[i];
+			// }
+			// $doc = new DOMDocument();
+			// $doc->loadHTMLFile($url);
+			// $finder = new DOMXPath($doc);
+			// $elements = $finder->query("*/div[@class='search-results-header']");
+			// if (!is_null($elements)){
+			// 	foreach ($elements as $element){
+			// 		printpre("[".$element->nodeName."]");
+			// 		$nodes = $element->childNodes;
+			// 		foreach ($nodes as $node){
+			// 			printpre($node->nodeValue);
+			// 		}
+			// 	}
+			// }
 		}
 	}
 }

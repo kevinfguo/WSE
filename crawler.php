@@ -17,7 +17,7 @@ class Crawler{
 		if ($website == 'muckrack'){
 			$url = 'http://muckrack.com/search/results?q=';
 			$url = $url.$name[0];
-			for (int i = 1; i < count($name_arr); i++){
+			for ($i = 1; $i < count($name_arr); $i++){
 				$url = $url.'%20'.$name[i];
 			}
 			$doc = new DOMDocument();

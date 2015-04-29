@@ -5,8 +5,8 @@ ini_set('display_errors', true); ini_set('display_startup_errors', true); error_
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	printpre("Success!");
-	//printpre($_POST["fname"]);
-	//printpre($_POST["lname"]);
+	printpre($_POST["fname"]);
+	printpre($_POST["lname"]);
 	$crawler = new Crawler();
 	$crawler->setQuery($_POST["fname"]);
 }else{

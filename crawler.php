@@ -15,7 +15,7 @@ class Crawler{
 	}
 	function crawl($website){
 		if ($website == 'muckrack'){
-			$url = 'http://muckrack.com/search/results?q='
+			$url = 'http://muckrack.com/search/results?q=';
 
 		}
 	}

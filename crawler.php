@@ -16,7 +16,7 @@ class Crawler{
 	function crawl($website){
 		if ($website == 'muckrack'){
 			$doc = new DOMDocument();
-			$doc -> loadHTMLFile("http://muckrack.com/search/results?q=gary%20levin");
+			$doc -> loadHTMLFile("http://muckrack.com/gary-levin/articles");
 			// $url = 'http://muckrack.com/search/results?q=';
 			// $url = $url.$name_arr[0];
 			// for ($i = 1; $i < count($name_arr); $i++){

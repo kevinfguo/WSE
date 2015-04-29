@@ -16,14 +16,14 @@ class Crawler{
 	function crawl($website){
 		if ($website == 'muckrack'){
 			$url = 'http://muckrack.com/search/results?q=';
-			$url = $url.$name[0];
+			$url = $url.$name_arr[0];
 			for ($i = 1; $i < count($name_arr); $i++){
-				$url = $url.'%20'.$name[i];
+				$url = $url.'%20'.$name_arr[i];
 			}
 			$doc = new DOMDocument();
-			$doc -> loadHTMLFile($url);
+			$doc->loadHTMLFile($url);
 			$finder = new DOMXPath($doc);
-			$elems = $finder->query("*/div[@class='search-results-header']");
+			$elements = $finder->query("*/div[@class='search-results-header']");
 			if (!is_null($elements)){
 				foreach ($elements as $element){
 					printpre("[".$element->nodeName."]");

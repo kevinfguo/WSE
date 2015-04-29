@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	printpre($_POST["lname"]);
 	$crawler = new Crawler();
 	$crawler->setQuery($_POST["fname"]);
+	$crawler->crawl('muckrack');
 }else{
 	printpre("Failure!");
 }

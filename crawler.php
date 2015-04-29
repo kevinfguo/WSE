@@ -16,7 +16,22 @@ class Crawler{
 	function crawl($website){
 		if ($website == 'muckrack'){
 			$url = 'http://muckrack.com/search/results?q=';
-
+			$url = $url.$name[0];
+			for (int i = 1; i < count($name_arr); i++){
+				$url = $url.'%20'.$name[i];
+			}
+			$doc = new DOMDocument();
+			$doc -> loadHTMLFile($url);
+			$elems = $finder->query("*/div[@class='search-results-header']");
+			if (!is_null($elements)){
+				foreach ($elements as $element){
+					printpre("[".$element->nodeName."]");
+					$nodes = $element->childNodes;
+					foreach ($nodes as $node){
+						printpre($node->nodeValue);
+					}
+				}
+			}
 		}
 	}
 }

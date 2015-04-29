@@ -22,6 +22,7 @@ class Crawler{
 			}
 			$doc = new DOMDocument();
 			$doc -> loadHTMLFile($url);
+			$finder = new DOMXPath($doc);
 			$elems = $finder->query("*/div[@class='search-results-header']");
 			if (!is_null($elements)){
 				foreach ($elements as $element){

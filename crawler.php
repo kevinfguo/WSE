@@ -29,15 +29,10 @@ class Crawler{
 			$doc = new DOMDocument();
 			$doc->loadHTMLFile($url);
 			$finder = new DOMXPath($doc);
-			$elements = $finder->query("*/div[@class='search-results-header']");
-			if (!is_null($elements)){
-				foreach ($elements as $element){
-					printpre("[".$element->nodeName."]");
-					$nodes = $element->childNodes;
-					foreach ($nodes as $node){
-						printpre($node->nodeValue);
-					}
-				}
+			$elements = $finder->query("//*[contains(@class,'person-details-name')]//a");
+			foreach ($elements as $element){
+				echo "<br>".$element->nodeValue;
+				echo "<br>".$element->getAttribute("href");
 			}
 		}
 	}

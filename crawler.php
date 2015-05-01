@@ -15,6 +15,7 @@ class Crawler{
 	}
 	function crawl($website){
 		if ($website == 'muckrack'){
+			ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
 			$doc = new DOMDocument();
 			$doc -> loadHTMLFile("http://muckrack.com/gary-levin/articles");
 			// $url = 'http://muckrack.com/search/results?q=';

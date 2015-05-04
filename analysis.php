@@ -8,10 +8,20 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//printpre($_POST["journalist"]);
 	$crawler = new Crawler();
-	//$articles = $crawler->obtain_articles($_POST["journalist"]);
+	$articles = $crawler->obtain_articles($_POST["journalist"]);
 	//printpre("Success!");
-	$response = $alchemyapi->keywords("url", $articles[0]['link'], null);
-	printpre($response);
+	/*
+	$results = array();
+	$options = array();
+	$options['sentiment'] = 1;
+	foreach ($articles as $article){
+		$response = $alchemyapi->keywords("url", $articles[0]['link'], $options);
+		$results[] = $response;
+	}
+	printpre(json_encode($results));
+	*/
+	//$response = $alchemyapi->keywords("url", $articles[0]['link'], null);
+	//printpre($response);
 }else {
 	printpre("Failure!");
 }

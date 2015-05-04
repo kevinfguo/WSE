@@ -20,15 +20,15 @@ function cmp($a,$b){
 
 function opinion_val($val){
 	if ($val > 0.2){
-		return 'positive';
+		return 'positively';
 	}else if ($val <= 0.2 && $val > 0){
-		return 'slightly positive';
+		return 'slightly positively';
 	}else if ($val == 0){
-		return 'neutral';
+		return 'neutrally';
 	}else if ($val < 0 && $val >= -0.2){
-		return 'slightly negative';
+		return 'slightly negatively';
 	}else{
-		return 'negative';
+		return 'negatively';
 	}
 }
 ?>

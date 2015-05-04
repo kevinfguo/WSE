@@ -1,5 +1,8 @@
 <!DOCROOT>
 <html>
+<head>
+	<title>Journalist Agenda Analyzer</title>
+</head>
 
 <?php
 require_once 'helper.php';
@@ -23,8 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	foreach ($res2 as $newres){
 		$res[] = $newres;
 	}
-	//printpre($res);
-	//printpre($res_nums);
 	$temp = array_shift($res_nums);
 	?>
 	<div>

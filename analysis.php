@@ -1,3 +1,8 @@
+<html>
+<head>
+	<title>Journalist Agenda Analyzer</title>
+</head>
+
 <?php
 	ini_set('display_errors', true); ini_set('display_startup_errors', true); error_reporting(E_ALL);
 	require_once 'helper.php';
@@ -64,3 +69,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	printpre("Failure!");
 }
 ?>
+</html>

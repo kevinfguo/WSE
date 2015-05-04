@@ -1,3 +1,7 @@
+<head>
+	<title>Journalist Agenda Analyzer</title>
+</head>
+
 <?php
 require_once 'helper.php';
 ini_set('display_errors', true); ini_set('display_startup_errors', true); error_reporting(E_ALL);

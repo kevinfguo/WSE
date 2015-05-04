@@ -5,6 +5,10 @@
 ?>
 <!DOCROOT>
 <html>
+	<head>
+	<title>Journalist Agenda Analyzer</title>
+	</head>
+
 	<p>Enter a journalist's name! Example: Vindu Goel</p>
 	<form action="results.php" method="POST">
 		Name: <input type="text" name="fname">

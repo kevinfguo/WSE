@@ -72,7 +72,6 @@ class Crawler{
 		printpre($website["host"]);
 		$articles = array();
 		if ($website['host'] == "muckrack.com"){
-			printpre("muckrack");
 			$doc = new DOMDocument();
 			@$doc->loadHTMLFile($URL);
 			$finder = new DOMXPath($doc);

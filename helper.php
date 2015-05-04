@@ -10,4 +10,11 @@ function printpre($obj) {
     } 
     echo '</pre>';
   }
+
+function cmp($a,$b){
+	if ($a["count"] == $b["count"]) {
+        return 0;
+    }
+    return ($a["count"] > $b["count"]) ? -1 : 1;
+}
 ?>

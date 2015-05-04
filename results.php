@@ -9,14 +9,18 @@ ini_set('display_errors', true); ini_set('display_startup_errors', true); error_
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$crawler = new Crawler();
 	$crawler->setQuery($_POST["fname"]);
-	$res = $crawler->search('muckrack');
-	printpre($res);
-	//$res = $crawler->search('nyt');
+	$res = $crawler->search('nyt');
+	//printpre($res);
+	$res2 = $crawler->search('muckrack');
+	foreach ($res2 as $newres){
+		$res[] = $newres;
+	}
 	//printpre($res);
 	?>
 	<form action="analysis.php" method="POST">
-		<?php for($i=0; $i < count($res['author']); $i++){ ?>
-			<input type="radio" name="journalist" value="<?php echo $res['link'][$i]; ?>"><?php echo $res['author'][$i]; ?>
+		<?php for($i=0; $i < count($res); $i++){ ?>
+			<input type="radio" name="journalist" value="<?php echo $res[$i]['link']; ?>"><?php echo $res[$i]['author']; ?>
+			<br>
 		<?php } ?>
 		<input type="submit" value="Select one!">
 	</form>

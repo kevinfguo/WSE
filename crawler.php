@@ -65,5 +65,26 @@ class Crawler{
 		}
 		return $results;	
 	}
+
+	function obtain_articles($URL){
+		ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
+		$website = parse_url($URL);
+		printpre($website["host"]);
+		$articles = array();
+		if ($website['host'] == "muckrack.com"){
+			printpre("muckrack");
+			$doc = new DOMDocument();
+			@$doc->loadHTMLFile($URL);
+			$finder = new DOMXPath($doc);
+			$elements = $finder->query("//*[contains(@class,'news-story')]//h3//a");
+			foreach ($elements as $element){
+				$articles[] = array('link' => $element->getAttribute("href"), 'title' => $element->nodeValue);
+			}
+			//printpre($articles);
+		}else if ($website['host'] == "nytimes.com"){
+			
+		}
+		return $articles;
+	}
 }
 ?>

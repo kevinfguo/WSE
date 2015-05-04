@@ -17,4 +17,18 @@ function cmp($a,$b){
     }
     return ($a["count"] > $b["count"]) ? -1 : 1;
 }
+
+function opinion_val($val){
+	if ($val > 0.2){
+		return 'positive';
+	}else if ($val <= 0.2 && $val > 0){
+		return 'slightly positive';
+	}else if ($val == 0){
+		return 'neutral';
+	}else if ($val < 0 && $val >= -0.2){
+		return 'slightly negative';
+	}else{
+		return 'negative';
+	}
+}
 ?>

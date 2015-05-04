@@ -89,7 +89,6 @@ class Crawler{
 			foreach ($elements as $element){
 				$articles[] = array('link' => $element->getAttribute("href"), 'title' => $element->nodeValue);
 			}
-			//printpre($articles);
 		}else if ($website['host'] == "topics.nytimes.com"){
 			$doc = new DOMDocument();
 			@$doc->loadHTMLFile($URL);

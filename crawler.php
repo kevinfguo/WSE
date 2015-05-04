@@ -33,7 +33,6 @@ class Crawler{
 		else if ($website == 'nyt'){
 			ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
 			$url = 'http://topics.nytimes.com/top/reference/timestopics/people/index.html';
-			//printpre($url);
 			$doc = new DOMDocument();
 			@$doc->loadHTMLFile($url);
 			$finder = new DOMXPath($doc);
@@ -53,6 +52,26 @@ class Crawler{
 					}
 				}
 			}
+		}else if ($website == 'latimes'){
+			ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
+			$url = 'http://www.latimes.com/about/la-editorial-staff-directory-htmlstory.html';
+			$doc = new DOMDocument();
+			@$doc->loadHTMLFile($url);
+			$finder = new DOMXPath($doc);
+			$elements = $finder->query("//*[contains(@class,'                      trb_article_page_body')]//p//a");
+			foreach ($elements as $element){
+				$laname = $element->nodeValue;
+					$found = true;
+					foreach($this->name_arr as $parts){
+						if (strpos($laname, $parts) === FALSE){
+							$found = false;
+							break;
+						}
+					}
+					if ($found){
+						$results[] = array('author' => $element->nodeValue, 'link' => $element->getAttribute("href"));
+					}
+			}
 		}
 		return $results;	
 	}
@@ -71,8 +90,22 @@ class Crawler{
 				$articles[] = array('link' => $element->getAttribute("href"), 'title' => $element->nodeValue);
 			}
 			//printpre($articles);
-		}else if ($website['host'] == "nytimes.com"){
-			
+		}else if ($website['host'] == "topics.nytimes.com"){
+			$doc = new DOMDocument();
+			@$doc->loadHTMLFile($URL);
+			$finder = new DOMXPath($doc);
+			$elements = $finder->query("//*[contains(@class,'story clearfix')]//h4//a");
+			foreach ($elements as $element){
+				$articles[] = array('link' => $element->getAttribute("href"), 'title' => $element->nodeValue);
+			}
+		}else if ($website['host'] == "www.latimes.com"){
+			$doc = new DOMDocument();
+			@$doc->loadHTMLFile($URL);
+			$finder = new DOMXPath($doc);
+			$elements = $finder->query("//*[contains(@class,'trb_outfit_group_list_item_figure')]");
+			foreach ($elements as $element){
+				$articles[] = array('link' => 'http://www.latimes.com'.$element->getAttribute("href"));
+			}
 		}
 		return $articles;
 	}

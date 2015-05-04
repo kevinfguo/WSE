@@ -1,0 +1,35 @@
+Kevin Guo (kfg217@nyu.edu)
+NYU - Web Search Engines
+Spring 2015
+Term Project
+
+The Journalist Agenda Analyzer (JAA) is a tool with the aims of identifying and informing readers about the topics a writer covers and their opinion on those topics. Using this tool can help a reader understand how familiar a journalist is with the issues they're writing about and any clear bias of opinion. 
+
+JAA is written almost entirely in PHP and can be run on a server supporting PHP 5.3.3 or greater. The project was developed, tested and is running on NYU's Linux servers at http://cims.nyu.edu/~kfg217/WSE/
+
+The project contents can be placed in the appropriate web folder and immediately run, assuming all permissions are appropriately set. Deploying a MVC framework on the NYU servers was proving more trouble than it was worth, so there is no bootstrapping or setup process. Additionally, all information is collected and query time and no data is stored in a DB. JAA uses IBM's AlchemyAPI tool to do the heavy lifting for its NLP analysis; usage for the application is globally limited to 1000 transactions / day. You can input your own key by editing the alchemyapi_php/alchemyapi.php file with your key. You may register for your own key at and : http://www.alchemyapi.com/
+
+Each journalist query utilizes roughly 20 transactions per query, so please be mindful in your usage.
+
+Required files:
+- index.php
+- crawler.php
+- results.php
+- analysis.php
+- helper.php
+- alchemyapi_php/alchemyapi.php
+
+A lengthy discussion of sample examples, encountered technical hurdles and possible improvements are details in "WSE Project Write-up.docx"
+
+
+ACKNOWLEDGEMENTS
+
+The idea for this project aimed at journalistic accountability was inspired by a 2008 project for tracking political statements by politicians. The poster from WWW2008 can be found here: http://www.ra.ethz.ch/CDStore/www2008/www2008.org/papers/pp182.html
+
+All articles are the intellectual property of their respective authors and publications. I do not claim any ownership rights to any of this publicly available material.
+
+AlchemyAPI is a property of IBM (International Business Machines Corporation). Their tool for public access is greatly appreciated.
+
+The "printpre" function in helper.php is a trivial echoing function with great utility by Sameer Tanakia, my coworker and mentor at for[MD].
+
+Thanks to Dr. Ernest Davis for his guidance in this project idea.

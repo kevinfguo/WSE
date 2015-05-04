@@ -79,7 +79,6 @@ class Crawler{
 	function obtain_articles($URL){
 		ini_set('user_agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
 		$website = parse_url($URL);
-		printpre($website["host"]);
 		$articles = array();
 		if ($website['host'] == "muckrack.com"){
 			$doc = new DOMDocument();
